@@ -10,7 +10,7 @@ namespace RR_PawnBadge
     {
         public CompBadge()
         {
-            this.badges = new string[] { "", "" };
+            this.badges = new string[] { "", "", "", "" };
         }
 
         public override void PostExposeData()
@@ -25,6 +25,14 @@ namespace RR_PawnBadge
             if (!isSave || this.badges[1] != "")
             {
                 Scribe_Values.Look<string>(ref this.badges[1], "RRPawnBadge_Badge1", defaultValue: "");
+            }
+            if (!isSave || this.badges[2] != "")
+            {
+                Scribe_Values.Look<string>(ref this.badges[2], "RRPawnBadge_Badge2", defaultValue: "");
+            }
+            if (!isSave || this.badges[3] != "")
+            {
+                Scribe_Values.Look<string>(ref this.badges[3], "RRPawnBadge_Badge3", defaultValue: "");
             }
         }
 

@@ -84,6 +84,7 @@ namespace RR_PawnBadge
 					GUI.DrawTexture(brect, badgeDef.Symbol, ScaleMode.ScaleToFit);
 				}
 			}
+
 		}
     }
 }

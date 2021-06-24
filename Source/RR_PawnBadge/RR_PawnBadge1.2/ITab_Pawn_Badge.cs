@@ -21,9 +21,14 @@ namespace RR_PawnBadge
         {
             this.size = new UnityEngine.Vector2(500f, 470f); ;
             this.labelKey = "PawnBadge.BadgeTab";
+			if (defs == null)
+            {
+				defs = new List<BadgeDef>(DefDatabase<BadgeDef>.AllDefsListForReading.Where(x => !(Settings.disableBaseBadges && x.fromBaseMod)));
+				defs.Insert(0, new BadgeDef("", Controller.GreyTex));
+			}
         }
-
-        private Pawn SelPawnForBadgeInfo
+		public static List<BadgeDef> defs;
+		private Pawn SelPawnForBadgeInfo
         {
             get
             {
@@ -31,8 +36,7 @@ namespace RR_PawnBadge
                 {
                     return base.SelPawn;
                 }
-                Corpse corpse = base.SelThing as Corpse;
-                if (corpse != null)
+                if (base.SelThing is Corpse corpse)
                 {
                     return corpse.InnerPawn;
                 }
@@ -125,8 +129,6 @@ namespace RR_PawnBadge
 			Rect badgeRect = outRect;
 			badgeRect.width -= 16f;
 			LayoutManager layout = new LayoutManager(badgeRect, 40f, 30f);
-			List<BadgeDef> defs = new List<BadgeDef>(DefDatabase<BadgeDef>.AllDefsListForReading.Where(x => !(Settings.disableBaseBadges && x.fromBaseMod)));
-			defs.Insert(0, new BadgeDef("", Controller.GreyTex));
 
 			badgeRect.height = layout.MaxHeightNeeded(defs.Count());
 

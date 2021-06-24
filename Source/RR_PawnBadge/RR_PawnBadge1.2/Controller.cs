@@ -17,10 +17,12 @@ namespace RR_PawnBadge
 				Log.Error("Tried to create a texture from a different thread.", false);
 				return null;
 			}
-			Texture2D texture2D = new Texture2D(35, 35);
-			texture2D.name = "RR_PawnBadge-SolidColorTex-" + color;
+            Texture2D texture2D = new Texture2D(35, 35)
+            {
+                name = "RR_PawnBadge-SolidColorTex-" + color
+            };
 
-			var fillColorArray = texture2D.GetPixels();
+            var fillColorArray = texture2D.GetPixels();
 			for (var i = 0; i < fillColorArray.Length; ++i)
 			{
 				fillColorArray[i] = color;
@@ -39,22 +41,26 @@ namespace RR_PawnBadge
 			);
 			foreach (ThingDef t in things)
 			{
-				// add badge tab to pawns
-				if (t.inspectorTabsResolved == null)
-				{
-					t.inspectorTabsResolved = new List<InspectTabBase>(1);
-				}
-				t.inspectorTabs.Add(typeof(ITab_Pawn_Badge));
-
-			//	t.inspectorTabsResolved.Add(InspectTabManager.GetSharedInstance(typeof(ITab_Pawn_Badge)));
-				Log.Message("added Badge tab to " + t.defName);
 				// add Badge component property to all humanlike pawns
 				if (t.comps == null)
 				{
 					t.comps = new List<CompProperties>(1);
 				}
 				t.comps.Add(new CompProperties_Badge());
-				Log.Message("added Badge comp to " + t.defName);
+				//	Log.Message("added Badge comp to " + t.defName);
+
+				// add badge tab to pawns
+				if (t.inspectorTabsResolved == null)
+				{
+					t.inspectorTabsResolved = new List<InspectTabBase>(1);
+				}
+				/*
+				// this was the original method, however the tab is lost if ResolveReferences is called on the def
+					t.inspectorTabsResolved.Add(InspectTabManager.GetSharedInstance(typeof(ITab_Pawn_Badge)));
+				*/
+				// this is my fix, copied from Cpt Ohu's Corruption mod
+				t.inspectorTabs.Add(typeof(ITab_Pawn_Badge));
+				//	Log.Message("added Badge tab to " + t.defName);
 				t.ResolveReferences();
 			}
 		}

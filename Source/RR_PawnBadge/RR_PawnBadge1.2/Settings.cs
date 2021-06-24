@@ -30,26 +30,28 @@ namespace RR_PawnBadge
 
         public void DoWindowContents(Rect canvas)
         {
-            Listing_Standard list = new Listing_Standard();
-            list.ColumnWidth = canvas.width;
+            Listing_Standard list = new Listing_Standard
+            {
+                ColumnWidth = canvas.width
+            };
             list.Begin(canvas);
 
             // badge position setting
             list.Label("PawnBadge.BadgePosition".Translate());
             list.GapLine();
-            if (list.RadioButton("PawnBadge.BadgePosition_Top".Translate(), badgePosition == BadgePosition.Top, 0f, null))
+            if (list.RadioButton_NewTemp("PawnBadge.BadgePosition_Top".Translate(), badgePosition == BadgePosition.Top, 0f, null))
             {
                 badgePosition = BadgePosition.Top;
             }
-            if (list.RadioButton("PawnBadge.BadgePosition_Left".Translate(), badgePosition == BadgePosition.Left, 0f, null))
+            if (list.RadioButton_NewTemp("PawnBadge.BadgePosition_Left".Translate(), badgePosition == BadgePosition.Left, 0f, null))
             {
                 badgePosition = BadgePosition.Left;
             }
-            if (list.RadioButton("PawnBadge.BadgePosition_Right".Translate(), badgePosition == BadgePosition.Right, 0f, null))
+            if (list.RadioButton_NewTemp("PawnBadge.BadgePosition_Right".Translate(), badgePosition == BadgePosition.Right, 0f, null))
             {
                 badgePosition = BadgePosition.Right;
             }
-            if (list.RadioButton("PawnBadge.BadgePosition_Bottom".Translate(), badgePosition == BadgePosition.Bottom, 0f, null))
+            if (list.RadioButton_NewTemp("PawnBadge.BadgePosition_Bottom".Translate(), badgePosition == BadgePosition.Bottom, 0f, null))
             {
                 badgePosition = BadgePosition.Bottom;
             }
@@ -58,15 +60,15 @@ namespace RR_PawnBadge
             // badge size setting
             list.Label("PawnBadge.BadgeSize".Translate());
             list.GapLine();
-            if (list.RadioButton("PawnBadge.BadgeSize_Small".Translate(), badgeSize == BadgeSize.Small, 0f, null))
+            if (list.RadioButton_NewTemp("PawnBadge.BadgeSize_Small".Translate(), badgeSize == BadgeSize.Small, 0f, null))
             {
                 badgeSize = BadgeSize.Small;
             }
-            if (list.RadioButton("PawnBadge.BadgeSize_Medium".Translate(), badgeSize == BadgeSize.Medium, 0f, null))
+            if (list.RadioButton_NewTemp("PawnBadge.BadgeSize_Medium".Translate(), badgeSize == BadgeSize.Medium, 0f, null))
             {
                 badgeSize = BadgeSize.Medium;
             }
-            if (list.RadioButton("PawnBadge.BadgeSize_Large".Translate(), badgeSize == BadgeSize.Large, 0f, null))
+            if (list.RadioButton_NewTemp("PawnBadge.BadgeSize_Large".Translate(), badgeSize == BadgeSize.Large, 0f, null))
             {
                 badgeSize = BadgeSize.Large;
             }

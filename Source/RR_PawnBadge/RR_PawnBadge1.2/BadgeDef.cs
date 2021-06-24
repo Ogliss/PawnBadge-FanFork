@@ -15,7 +15,6 @@ namespace RR_PawnBadge
 
         public BadgeDef() : base()
         {
-
         }
 
         public BadgeDef(string defName, Texture2D symbolTex) : base()

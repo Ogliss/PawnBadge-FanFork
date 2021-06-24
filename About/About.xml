@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-	<name>Pawn Badge Fan Fork</name>
-	<author>Updated by Saucy_Pigeon</author>
+	<name>Pawn Badge Fan Fork [Adopted]</name>
+	<author>Updated by Ogliss</author>
 	<url></url>
 	<supportedVersions>
 		<li>1.0</li>
 		<li>1.1</li>
 		<li>1.2</li>
 	</supportedVersions>
-	<description>The fan fork of the mod "Pawn Badge" originally by Rangel Reale which allows adding up to two informative badges to the colonist bar.
+	<description>An update to Saucy_Pigeon's fan fork of the mod "Pawn Badge" originally by Rangel Reale which allows adding up to two informative badges to the colonist bar.
   
 Any badge mods made for the original mod will be compatible with this mod.
 
 Can be safely added and removed from save games.
 
+Fixed issue where other mods calling ResolveReferences on race ThingDefs would remove the Badges Tab.
+
 Requires Harmony (versions 1.1/1.2 only).
 
 Credits:
+- Saucy_Pigeon, the original author of the Fan Fork.
 - Rangel Reale, the original author of the mod.
 - LeninsCat, for fixing the manifest error message and providing excellent updated textures.</description>
 	<packageId>SaucyPigeon.PawnBadge</packageId>
