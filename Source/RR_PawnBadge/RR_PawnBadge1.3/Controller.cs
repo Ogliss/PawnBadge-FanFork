@@ -9,6 +9,7 @@ namespace RR_PawnBadge
     public static class Controller
     {
 		public static readonly Texture2D GreyTex = NewSolidColorTexture(Color.gray);
+		public static bool WhatTheHack = false;
 
 		public static Texture2D NewSolidColorTexture(Color color)
 		{
@@ -36,7 +37,7 @@ namespace RR_PawnBadge
 		{
 			IEnumerable<ThingDef> things = (
 				from def in DefDatabase<ThingDef>.AllDefs
-				where def.race != null && def.race.Humanlike
+				where def.race != null && (def.race.Humanlike || (WhatTheHack && def.race.IsMechanoid))
 				select def
 			);
 			foreach (ThingDef t in things)
@@ -67,6 +68,7 @@ namespace RR_PawnBadge
 
 		static Controller()
 		{
+			WhatTheHack = ModLister.GetActiveModWithIdentifier("roolo.whatthehack") != null;
 			EditDefs();
 		}
 	}
