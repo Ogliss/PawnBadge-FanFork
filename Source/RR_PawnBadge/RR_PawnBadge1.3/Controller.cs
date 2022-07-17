@@ -51,9 +51,9 @@ namespace RR_PawnBadge
 				//	Log.Message("added Badge comp to " + t.defName);
 
 				// add badge tab to pawns
-				if (t.inspectorTabsResolved == null)
+				if (t.inspectorTabs == null)
 				{
-					t.inspectorTabsResolved = new List<InspectTabBase>(1);
+					t.inspectorTabs = new List<System.Type>();
 				}
 				/*
 				// this was the original method, however the tab is lost if ResolveReferences is called on the def
